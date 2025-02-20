@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Page Title</title>
+		<link rel="stylesheet" href="../css/styles.css">
+	</head>
+<body>
+    <a href="index.html" class="nav-link">← Back to Index</a>
+    <h1>Teams Management</h1>
+
+    <!-- Add Team Form -->
+    <h2>Add New Team</h2>
+    <form id="addTeam">
+        <label for="teamName">Team Name:</label><br>
+        <input type="text" id="teamName" name="teamName" required><br>
+        
+        <label for="creationDate">Creation Date:</label><br>
+        <input type="datetime-local" id="creationDate" name="creationDate" required><br>
+        
+        <label for="numMembers">Number of Members:</label><br>
+        <input type="number" id="numMembers" name="numMembers" required><br>
+        
+        <button type="submit">Add Team</button>
+    </form>
+
+    <!-- Display Teams -->
+    <h2>Current Teams</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Team ID</th>
+                <th>Team Name</th>
+                <th>Creation Date</th>
+                <th>Number of Members</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data -->
+            <tr>
+                <td>1</td>
+                <td>OSUSEC</td>
+                <td>2024-03-10</td>
+                <td>6</td>
+                <td>
+                    <button onclick="editTeam(1)">Edit</button>
+                    <button onclick="deleteTeam(1)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Update Team Form -->
+    <h2>Update Team</h2>
+    <form id="updateTeam">
+        <input type="hidden" id="updateTeamId" name="updateTeamId">
+        
+        <label for="updateTeamName">Team Name:</label><br>
+        <input type="text" id="updateTeamName" name="updateTeamName" required><br>
+        
+        <label for="updateNumMembers">Number of Members:</label><br>
+        <input type="number" id="updateNumMembers" name="updateNumMembers" required><br>
+        
+        <button type="submit">Update Team</button>
+    </form>
+</body>
+</html>

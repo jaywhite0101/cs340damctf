@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Page Title</title>
+		<link rel="stylesheet" href="../css/styles.css">
+	</head>
+<body>
+    <a href="index.html" class="nav-link">← Back to Index</a>
+    <h1>CTF Scores Management</h1>
+
+    <!-- Add Score Form -->
+    <h2>Add New Score</h2>
+    <form id="addScore">
+        <label for="participantId">Participant:</label><br>
+        <select id="participantId" name="participantId" required>
+            <option value="">Select Participant</option>
+            <option value="1">jaywhite0101 (OSUSEC)</option>
+            <option value="2">alexab04 (WiCyS)</option>
+            <option value="3">janejane435 (SWE)</option>
+        </select><br>
+        
+        <label for="challengeId">Challenge:</label><br>
+        <select id="challengeId" name="challengeId" required>
+            <option value="">Select Challenge</option>
+            <option value="1">SQL Injection (700 pts)</option>
+            <option value="2">OSINT (400 pts)</option>
+            <option value="3">Buffer Overflow (900 pts)</option>
+        </select><br>
+        
+        <label for="score">Score:</label><br>
+        <input type="number" id="score" name="score" required><br>
+        
+        <label for="timestamp">Timestamp:</label><br>
+        <input type="datetime-local" id="timestamp" name="timestamp" required><br>
+        
+        <button type="submit">Add Score</button>
+    </form>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <h3>Filter Scores</h3>
+        <select id="filterTeam">
+            <option value="">All Teams</option>
+            <option value="1">OSUSEC</option>
+            <option value="2">WiCyS</option>
+            <option value="3">SWE</option>
+        </select>
+        <select id="filterChallenge">
+            <option value="">All Challenges</option>
+            <option value="1">SQL Injection</option>
+            <option value="2">OSINT</option>
+            <option value="3">Buffer Overflow</option>
+        </select>
+        <button onclick="applyFilters()">Apply Filters</button>
+    </div>
+
+    <!-- Display Scores -->
+    <h2>Current Scores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Score ID</th>
+                <th>Participant</th>
+                <th>Team</th>
+                <th>Challenge</th>
+                <th>Score</th>
+                <th>Timestamp</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data -->
+            <tr>
+                <td>1</td>
+                <td>jaywhite0101</td>
+                <td>OSUSEC</td>
+                <td>SQL Injection</td>
+                <td>500</td>
+                <td>2024-04-01 14:23:00</td>
+                <td>
+                    <button onclick="editScore(1)">Edit</button>
+                    <button onclick="deleteScore(1)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Update Score Form -->
+    <h2>Update Score</h2>
+    <form id="updateScore">
+        <input type="hidden" id="updateScoreId" name="updateScoreId">
+        
+        <label for="updateParticipantId">Participant:</label><br>
+        <select id="updateParticipantId" name="updateParticipantId" required>
+            <option value="">Select Participant</option>
+            <option value="1">jaywhite0101 (OSUSEC)</option>
+            <option value="2">alexab04 (WiCyS)</option>
+            <option value="3">janejane435 (SWE)</option>
+        </select><br>
+        
+        <label for="updateChallengeId">Challenge:</label><br>
+        <select id="updateChallengeId" name="updateChallengeId" required>
+            <option value="">Select Challenge</option>
+            <option value="1">SQL Injection (700 pts)</option>
+            <option value="2">OSINT (400 pts)</option>
+            <option value="3">Buffer Overflow (900 pts)</option>
+        </select><br>
+        
+        <label for="updateScore">Score:</label><br>
+        <input type="number" id="updateScore" name="updateScore" required><br>
+        
+        <label for="updateTimestamp">Timestamp:</label><br>
+        <input type="datetime-local" id="updateTimestamp" name="updateTimestamp" required><br>
+        
+        <button type="submit">Update Score</button>
+    </form>
+
+    <!-- Total Scores Section -->
+    <h2>Total Scores by Team</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Total Score</th>
+                <th>Challenges Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data -->
+            <tr>
+                <td>OSUSEC</td>
+                <td>500</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

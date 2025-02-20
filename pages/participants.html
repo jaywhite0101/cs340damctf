@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Page Title</title>
+		<link rel="stylesheet" href="../css/styles.css">
+	</head>
+<body>
+    <a href="index.html" class="nav-link">← Back to Index</a>
+    <h1>Participants Management</h1>
+
+    <!-- Add Participant Form -->
+    <h2>Add New Participant</h2>
+    <form id="addParticipant">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="realName">Real Name:</label><br>
+        <input type="text" id="realName" name="realName" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="teamId">Team:</label><br>
+        <select id="teamId" name="teamId">
+            <option value="">Select a Team</option>
+            <option value="1">OSUSEC</option>
+            <option value="2">WiCyS</option>
+            <option value="3">SWE</option>
+        </select><br>
+        
+        <button type="submit">Add Participant</button>
+    </form>
+
+    <!-- Display Participants -->
+    <h2>Current Participants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Participant ID</th>
+                <th>Username</th>
+                <th>Real Name</th>
+                <th>Email</th>
+                <th>Team</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data -->
+            <tr>
+                <td>1</td>
+                <td>jaywhite0101</td>
+                <td>Jay White</td>
+                <td>whitejo8@oregonstate.edu</td>
+                <td>OSUSEC</td>
+                <td>
+                    <button onclick="editParticipant(1)">Edit</button>
+                    <button onclick="deleteParticipant(1)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Update Participant Form -->
+    <h2>Update Participant</h2>
+    <form id="updateParticipant">
+        <input type="hidden" id="updateParticipantId" name="updateParticipantId">
+        
+        <label for="updateUsername">Username:</label><br>
+        <input type="text" id="updateUsername" name="updateUsername" required><br>
+        
+        <label for="updateRealName">Real Name:</label><br>
+        <input type="text" id="updateRealName" name="updateRealName" required><br>
+        
+        <label for="updateEmail">Email:</label><br>
+        <input type="email" id="updateEmail" name="updateEmail" required><br>
+        
+        <label for="updateTeamId">Team:</label><br>
+        <select id="updateTeamId" name="updateTeamId">
+            <option value="">Select a Team</option>
+            <option value="1">OSUSEC</option>
+            <option value="2">WiCyS</option>
+            <option value="3">SWE</option>
+        </select><br>
+        
+        <button type="submit">Update Participant</button>
+    </form>
+</body>
+</html>
