@@ -1,0 +1,167 @@
+<h1>{{title}}</h1>
+
+<div class="section-header">
+    <div class="alert-box">
+        <p class="placeholder-notice">⚠️ This is a placeholder page for demonstration purposes only. Actions performed here don't affect the database.</p>
+    </div>
+    <p>{{message}}</p>
+</div>
+
+<!-- Generic placeholder form -->
+<div class="form-container">
+    <h2>Sample Form</h2>
+    <form class="placeholder-form">
+        {{#if isTeams}}
+            <label for="teamName">Team Name:</label><br>
+            <input type="text" id="teamName" name="teamName" placeholder="Enter team name" disabled><br>
+            
+            <label for="teamCreationDate">Creation Date:</label><br>
+            <input type="date" id="teamCreationDate" name="teamCreationDate" disabled><br>
+        {{/if}}
+        
+        {{#if isParticipants}}
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="Enter username" disabled><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter email" disabled><br>
+            
+            <label for="team">Team:</label><br>
+            <select id="team" name="team" disabled>
+                <option value="">Select a team</option>
+                <option value="1">Team Alpha</option>
+                <option value="2">Team Beta</option>
+            </select><br>
+        {{/if}}
+        
+        {{#if isChallenges}}
+            <label for="challengeName">Challenge Name:</label><br>
+            <input type="text" id="challengeName" name="challengeName" placeholder="Enter challenge name" disabled><br>
+            
+            <label for="difficulty">Difficulty:</label><br>
+            <select id="difficulty" name="difficulty" disabled>
+                <option value="">Select difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select><br>
+            
+            <label for="maxPoints">Max Points:</label><br>
+            <input type="number" id="maxPoints" name="maxPoints" placeholder="Enter max points" disabled><br>
+        {{/if}}
+        
+        <button type="button" class="disabled-btn" disabled>Submit (Disabled)</button>
+    </form>
+</div>
+
+<!-- Placeholder table -->
+<div class="table-container">
+    <h2>Sample Data (Placeholder)</h2>
+    
+    {{#if isTeams}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Team ID</th>
+                    <th>Team Name</th>
+                    <th>Creation Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Team Alpha</td>
+                    <td>2023-05-15</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Team Beta</td>
+                    <td>2023-06-22</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {{/if}}
+    
+    {{#if isParticipants}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Participant ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Team</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>john_doe</td>
+                    <td>john@example.com</td>
+                    <td>Team Alpha</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>jane_smith</td>
+                    <td>jane@example.com</td>
+                    <td>Team Beta</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {{/if}}
+    
+    {{#if isChallenges}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Challenge ID</th>
+                    <th>Challenge Name</th>
+                    <th>Difficulty</th>
+                    <th>Max Points</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>SQL Injection Basics</td>
+                    <td>Easy</td>
+                    <td>100</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Advanced Binary Exploitation</td>
+                    <td>Hard</td>
+                    <td>500</td>
+                    <td>
+                        <button class="edit-btn" disabled>Edit</button>
+                        <button class="delete-btn" disabled>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {{/if}}
+</div>
+
+<a href="/" class="back-link">← Back to Home</a>

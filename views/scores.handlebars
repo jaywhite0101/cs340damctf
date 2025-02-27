@@ -1,0 +1,59 @@
+<h1>CTF Scores Management</h1>
+
+<!-- Add Score Form -->
+<h2>Add New Score</h2>
+<form id="addScore" action="/scores/add" method="POST">
+    <label for="participantId">Participant:</label><br>
+    <select id="participantId" name="participantId" required>
+        <option value="">Select Participant</option>
+        {{#each participants}}
+        <option value="{{this.participant_id}}">{{this.username}}</option>
+        {{/each}}
+    </select><br>
+
+    <label for="challengeId">Challenge:</label><br>
+    <select id="challengeId" name="challengeId" required>
+        <option value="">Select Challenge</option>
+        {{#each challenges}}
+        <option value="{{this.challenge_id}}">{{this.challenge_name}} ({{this.max_points}} pts)</option>
+        {{/each}}
+    </select><br>
+
+    <label for="score">Score:</label><br>
+    <input type="number" id="score" name="score" required><br>
+
+    <label for="timestamp">Timestamp:</label><br>
+    <input type="datetime-local" id="timestamp" name="timestamp" required><br>
+
+    <button type="submit">Add Score</button>
+</form>
+
+<!-- Display Scores -->
+<h2>Current Scores</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Score ID</th>
+            <th>Participant</th>
+            <th>Challenge</th>
+            <th>Score</th>
+            <th>Timestamp</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each scores}}
+        <tr>
+            <td>{{this.score_id}}</td>
+            <td>{{this.username}}</td>
+            <td>{{this.challenge_name}}</td>
+            <td>{{this.score}}</td>
+            <td>{{this.timestamp}}</td>
+            <td>
+                <a href="/scores/edit/{{this.score_id}}">Edit</a>
+                <a href="/scores/delete/{{this.score_id}}" onclick="return confirm('Are you sure you want to delete this score?')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

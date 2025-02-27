@@ -1,0 +1,30 @@
+<h1>Update CTF Score</h1>
+
+<form id="updateScore" action="/scores/update" method="POST">
+    <input type="hidden" id="scoreId" name="scoreId" value="{{score.score_id}}">
+
+    <label for="participantId">Participant:</label><br>
+    <select id="participantId" name="participantId" required>
+        <option value="">Select Participant</option>
+        {{#each participants}}
+        <option value="{{this.participant_id}}" {{#if (eq ../score.participant_id this.participant_id)}}selected{{/if}}>{{this.username}}</option>
+        {{/each}}
+    </select><br>
+
+    <label for="challengeId">Challenge:</label><br>
+    <select id="challengeId" name="challengeId" required>
+        <option value="">Select Challenge</option>
+        {{#each challenges}}
+        <option value="{{this.challenge_id}}" {{#if (eq ../score.challenge_id this.challenge_id)}}selected{{/if}}>{{this.challenge_name}} ({{this.max_points}} pts)</option>
+        {{/each}}
+    </select><br>
+
+    <label for="score">Score:</label><br>
+    <input type="number" id="score" name="score" value="{{score.score}}" required><br>
+
+    <label for="timestamp">Timestamp:</label><br>
+    <input type="datetime-local" id="timestamp" name="timestamp" value="{{formatDate score.timestamp}}" required><br>
+
+    <button type="submit">Update Score</button>
+    <a href="/scores" class="back-link">Cancel</a>
+</form>

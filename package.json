@@ -1,0 +1,28 @@
+{
+  "name": "projectgroup94_step4_draft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaywhite0101/cs340damctf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jaywhite0101/cs340damctf/issues"
+  },
+  "homepage": "https://github.com/jaywhite0101/cs340damctf#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "handlebars": "^4.7.8",
+    "mysql": "^2.18.1"
+  }
+}
