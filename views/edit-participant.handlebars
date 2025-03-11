@@ -1,0 +1,25 @@
+<h1>Update Participant</h1>
+
+<form id="updateParticipant" action="/participants/update" method="POST">
+    <input type="hidden" id="participantId" name="participantId" value="{{participant.participant_id}}">
+
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" value="{{participant.username}}" required><br>
+
+    <label for="realName">Real Name:</label><br>
+    <input type="text" id="realName" name="realName" value="{{participant.real_name}}" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" value="{{participant.email}}" required><br>
+
+    <label for="teamId">Team:</label><br>
+    <select id="teamId" name="teamId">
+        <option value="">No Team</option>
+        {{#each teams}}
+        <option value="{{this.team_id}}" {{#if (eq ../participant.team_id this.team_id)}}selected{{/if}}>{{this.team_name}}</option>
+        {{/each}}
+    </select><br>
+
+    <button type="submit">Update Participant</button>
+    <a href="/participants" class="back-link">Cancel</a>
+</form>

@@ -1,0 +1,54 @@
+<h1>Participants Management</h1>
+
+<!-- Add Participant Form -->
+<h2>Add New Participant</h2>
+<form id="addParticipant" action="/participants/add" method="POST">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="realName">Real Name:</label><br>
+    <input type="text" id="realName" name="realName" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="teamId">Team:</label><br>
+    <select id="teamId" name="teamId">
+        <option value="">No Team</option>
+        {{#each teams}}
+        <option value="{{this.team_id}}">{{this.team_name}}</option>
+        {{/each}}
+    </select><br>
+
+    <button type="submit">Add Participant</button>
+</form>
+
+<!-- Display Participants -->
+<h2>Current Participants</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Participant ID</th>
+            <th>Username</th>
+            <th>Real Name</th>
+            <th>Email</th>
+            <th>Team</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each participants}}
+        <tr>
+            <td>{{this.participant_id}}</td>
+            <td>{{this.username}}</td>
+            <td>{{this.real_name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.team_name}}</td>
+            <td>
+                <a href="/participants/edit/{{this.participant_id}}">Edit</a>
+                <a href="/participants/delete/{{this.participant_id}}" onclick="return confirm('Are you sure you want to delete this participant?')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

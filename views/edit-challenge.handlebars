@@ -1,0 +1,21 @@
+<h1>Update Challenge</h1>
+
+<form id="updateChallenge" action="/challenges/update" method="POST">
+    <input type="hidden" id="challengeId" name="challengeId" value="{{challenge.challenge_id}}">
+
+    <label for="challengeName">Challenge Name:</label><br>
+    <input type="text" id="challengeName" name="challengeName" value="{{challenge.challenge_name}}" required><br>
+
+    <label for="maxPoints">Max Points:</label><br>
+    <input type="number" id="maxPoints" name="maxPoints" value="{{challenge.max_points}}" min="0" required><br>
+
+    <label for="difficulty">Difficulty:</label><br>
+    <select id="difficulty" name="difficulty" required>
+        <option value="Easy" {{#if (eq challenge.difficulty "Easy")}}selected{{/if}}>Easy</option>
+        <option value="Intermediate" {{#if (eq challenge.difficulty "Intermediate")}}selected{{/if}}>Intermediate</option>
+        <option value="Hard" {{#if (eq challenge.difficulty "Hard")}}selected{{/if}}>Hard</option>
+    </select><br>
+
+    <button type="submit">Update Challenge</button>
+    <a href="/challenges" class="back-link">Cancel</a>
+</form>

@@ -1,0 +1,49 @@
+<h1>Challenges Management</h1>
+
+<!-- Add Challenge Form -->
+<h2>Add New Challenge</h2>
+<form id="addChallenge" action="/challenges/add" method="POST">
+    <label for="challengeName">Challenge Name:</label><br>
+    <input type="text" id="challengeName" name="challengeName" required><br>
+
+    <label for="maxPoints">Max Points:</label><br>
+    <input type="number" id="maxPoints" name="maxPoints" min="0" required><br>
+
+    <label for="difficulty">Difficulty:</label><br>
+    <select id="difficulty" name="difficulty" required>
+        <option value="">Select Difficulty</option>
+        <option value="Easy">Easy</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Hard">Hard</option>
+    </select><br>
+
+    <button type="submit">Add Challenge</button>
+</form>
+
+<!-- Display Challenges -->
+<h2>Current Challenges</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Challenge ID</th>
+            <th>Challenge Name</th>
+            <th>Max Points</th>
+            <th>Difficulty</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each challenges}}
+        <tr>
+            <td>{{this.challenge_id}}</td>
+            <td>{{this.challenge_name}}</td>
+            <td>{{this.max_points}}</td>
+            <td>{{this.difficulty}}</td>
+            <td>
+                <a href="/challenges/edit/{{this.challenge_id}}">Edit</a>
+                <a href="/challenges/delete/{{this.challenge_id}}" onclick="return confirm('Are you sure you want to delete this challenge?')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

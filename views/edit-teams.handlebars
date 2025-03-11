@@ -1,0 +1,17 @@
+<h1>Update Team</h1>
+
+<form id="updateTeam" action="/teams/update" method="POST">
+    <input type="hidden" id="teamId" name="teamId" value="{{team.team_id}}">
+
+    <label for="teamName">Team Name:</label><br>
+    <input type="text" id="teamName" name="teamName" value="{{team.team_name}}" required><br>
+
+    <label for="creationDate">Creation Date:</label><br>
+    <input type="date" id="creationDate" name="creationDate" value="{{formatDate team.creation_date}}" required><br>
+
+    <label for="numMembers">Number of Members:</label><br>
+    <input type="number" id="numMembers" name="numMembers" value="{{team.num_members}}" min="0" required><br>
+
+    <button type="submit">Update Team</button>
+    <a href="/teams" class="back-link">Cancel</a>
+</form>
