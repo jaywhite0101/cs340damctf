@@ -59,11 +59,11 @@ INSERT INTO Teams (team_name, creation_date, num_members) VALUES
 -- Insert sample Participants
 -- Using subqueries for FK relationships to avoid hardcoding IDs
 INSERT INTO Participants (username, real_name, email, team_id) VALUES
-('jaywhite0101', 'Jay White', 'whitejo8@oregonstate.edu', 
+('jaywhite0101', 'Jay White', 'whitejo8@oregonstate.edu',
     (SELECT team_id FROM Teams WHERE team_name = 'OSUSEC')),
-('alexab04', 'Alexa Baruela', 'baruelaa@oregonstate.edu', 
+('alexab04', 'Alexa Baruela', 'baruelaa@oregonstate.edu',
     (SELECT team_id FROM Teams WHERE team_name = 'WiCyS')),
-('janejane435', 'Jane Doe', 'doej56@oregonstate.edu', 
+('janejane435', 'Jane Doe', 'doej56@oregonstate.edu',
     (SELECT team_id FROM Teams WHERE team_name = 'SWE'));
 
 -- Insert sample Challenges
@@ -76,14 +76,14 @@ INSERT INTO Challenges (challenge_name, max_points, difficulty) VALUES
 -- Using subqueries for FK relationships to avoid hardcoding IDs
 INSERT INTO CTF_Scores (participant_id, challenge_id, score, timestamp) VALUES
 ((SELECT participant_id FROM Participants WHERE username = 'jaywhite0101'),
- (SELECT challenge_id FROM Challenges WHERE challenge_name = 'SQL Injection'),
- 500, '2024-04-01 14:23:00'),
+(SELECT challenge_id FROM Challenges WHERE challenge_name = 'SQL Injection'),
+500, '2024-04-01 14:23:00'),
 ((SELECT participant_id FROM Participants WHERE username = 'alexab04'),
- (SELECT challenge_id FROM Challenges WHERE challenge_name = 'OSINT'),
- 350, '2024-04-01 15:10:00'),
+(SELECT challenge_id FROM Challenges WHERE challenge_name = 'OSINT'),
+350, '2024-04-01 15:10:00'),
 ((SELECT participant_id FROM Participants WHERE username = 'janejane435'),
- (SELECT challenge_id FROM Challenges WHERE challenge_name = 'Buffer Overflow'),
- 200, '2024-04-02 10:00:00');
+(SELECT challenge_id FROM Challenges WHERE challenge_name = 'Buffer Overflow'),
+200, '2024-04-02 10:00:00');
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
