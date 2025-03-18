@@ -17,3 +17,9 @@
 - **Adapted from:** Handlebars documentation
 - **Source URL:** https://handlebarsjs.com/guide/#what-is-handlebars
 - **Description:** Used the Handlebars documentation as a guide for setting up the pages after using the NodeJS Starter App for a base.
+
+### Javascript
+- **Date:** 03/17/2025
+- **Adapted from:** MDN Web Docs
+- **Source URL:** https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
+- **Description:** Used the MDN web docs to prevent future timestamps and a point maximum on the teams.handlebars and scores.handlebars forms.
