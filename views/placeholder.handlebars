@@ -1,3 +1,10 @@
+<!--
+ * Citation for handlebars: Used the NodeJS starter app as a base for setting up the Handlebars pages. Used Handlebars documentation for further adjustment. Used w3schools as reminders for form formatting.
+ * Date: 03/17/2025
+ * Adapted from: OSU CS340 NodeJS Starter App
+ * Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data , https://handlebarsjs.com/guide/#what-is-handlebars , https://www.w3schools.com/html/html_forms.asp
+-->
+
 <h1>{{title}}</h1>
 
 <div class="section-header">
@@ -14,18 +21,18 @@
         {{#if isTeams}}
             <label for="teamName">Team Name:</label><br>
             <input type="text" id="teamName" name="teamName" placeholder="Enter team name" disabled><br>
-            
+
             <label for="teamCreationDate">Creation Date:</label><br>
             <input type="date" id="teamCreationDate" name="teamCreationDate" disabled><br>
         {{/if}}
-        
+
         {{#if isParticipants}}
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" placeholder="Enter username" disabled><br>
-            
+
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" placeholder="Enter email" disabled><br>
-            
+
             <label for="team">Team:</label><br>
             <select id="team" name="team" disabled>
                 <option value="">Select a team</option>
@@ -33,11 +40,11 @@
                 <option value="2">Team Beta</option>
             </select><br>
         {{/if}}
-        
+
         {{#if isChallenges}}
             <label for="challengeName">Challenge Name:</label><br>
             <input type="text" id="challengeName" name="challengeName" placeholder="Enter challenge name" disabled><br>
-            
+
             <label for="difficulty">Difficulty:</label><br>
             <select id="difficulty" name="difficulty" disabled>
                 <option value="">Select difficulty</option>
@@ -45,11 +52,11 @@
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
             </select><br>
-            
+
             <label for="maxPoints">Max Points:</label><br>
             <input type="number" id="maxPoints" name="maxPoints" placeholder="Enter max points" disabled><br>
         {{/if}}
-        
+
         <button type="button" class="disabled-btn" disabled>Submit (Disabled)</button>
     </form>
 </div>
@@ -57,7 +64,7 @@
 <!-- Placeholder table -->
 <div class="table-container">
     <h2>Sample Data (Placeholder)</h2>
-    
+
     {{#if isTeams}}
         <table>
             <thead>
@@ -90,7 +97,7 @@
             </tbody>
         </table>
     {{/if}}
-    
+
     {{#if isParticipants}}
         <table>
             <thead>
@@ -126,7 +133,7 @@
             </tbody>
         </table>
     {{/if}}
-    
+
     {{#if isChallenges}}
         <table>
             <thead>

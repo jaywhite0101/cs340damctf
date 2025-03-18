@@ -1,3 +1,9 @@
+<!--
+ * Citation for handlebars: Used the NodeJS starter app as a base for setting up the Handlebars pages. Used Handlebars documentation for further adjustment.
+ * Date: 03/17/2025
+ * Adapted from: OSU CS340 NodeJS Starter App
+ * Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data , https://handlebarsjs.com/guide/#what-is-handlebars
+-->
 <h1>CTF Scores Management</h1>
 
 <!-- Add Score Form -->
@@ -20,7 +26,7 @@
     </select><br>
 
     <label for="score">Score:</label><br>
-    <input type="number" id="score" name="score" required><br>
+    <input type="number" id="score" name="score" min="0" max="1000000" required><br>
 
     <label for="timestamp">Timestamp:</label><br>
     <input type="datetime-local" id="timestamp" name="timestamp" required><br>
@@ -57,3 +63,34 @@
         {{/each}}
     </tbody>
 </table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current datetime
+        const now = new Date().toISOString().slice(0, 16);
+
+        // Set max date for timestamp input to prevent future dates
+        const timestampInput = document.getElementById('timestamp');
+        if (timestampInput) {
+            timestampInput.setAttribute('max', now);
+        }
+
+        // Get challenge dropdown
+        const challengeDropdown = document.getElementById('challengeId');
+        const scoreInput = document.getElementById('score');
+
+        // Add event listener to update max score when challenge is selected
+        if(challengeDropdown && scoreInput) {
+            challengeDropdown.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const maxPoints = selectedOption.text.match(/\((\d+) pts\)/);
+
+                if (maxPoints && maxPoints[1]) {
+                    scoreInput.setAttribute('max', maxPoints[1]);
+                } else {
+                    scoreInput.setAttribute('max', '1000000');
+                }
+            });
+        }
+    });
+</script>

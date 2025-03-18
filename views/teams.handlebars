@@ -1,3 +1,10 @@
+<!--
+ * Citation for handlebars: Used the NodeJS starter app as a base for setting up the Handlebars pages. Used Handlebars documentation for further adjustment.
+ * Date: 03/17/2025
+ * Adapted from: OSU CS340 NodeJS Starter App
+ * Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data , https://handlebarsjs.com/guide/#what-is-handlebars
+-->
+
 <h1>Teams Management</h1>
 
 <!-- Add Team Form -->
@@ -10,7 +17,7 @@
     <input type="date" id="creationDate" name="creationDate" required><br>
 
     <label for="numMembers">Number of Members:</label><br>
-    <input type="number" id="numMembers" name="numMembers" min="0" required><br>
+    <input type="number" id="numMembers" name="numMembers" min="0" max="1000" required><br>
 
     <button type="submit">Add Team</button>
 </form>
@@ -42,3 +49,16 @@
         {{/each}}
     </tbody>
 </table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split('T')[0];
+
+        // Set max date for creation date input to prevent future dates
+        const creationDateInput = document.getElementById('creationDate');
+        if (creationDateInput) {
+            creationDateInput.setAttribute('max', today);
+        }
+    });
+</script>

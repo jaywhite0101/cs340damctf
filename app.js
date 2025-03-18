@@ -1,3 +1,10 @@
+/*
+ * Citation for app.js: Used the NodeJS starter app as a base for this project.
+ * Date: 03/17/2025
+ * Adapted from: OSU CS340 NodeJS Starter App
+ * Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+ */
+
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql');
